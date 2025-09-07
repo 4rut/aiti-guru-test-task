@@ -143,7 +143,7 @@ Request body
 
 **Swagger:** /docs
 Технически: внутри выполняется `SELECT … FOR UPDATE` по товару, затем UPSERT в `order_items` через `ON CONFLICT`, после — списание `stock_qty` и коммит одной транзакцией.
-
+```
 
 ## SQL-запросы
 1. Сумма заказов по каждому клиенту
