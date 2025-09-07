@@ -115,14 +115,16 @@ Table order_items {
     (product_id)
     (order_id, product_id) [pk]
   }
-}```
+}
+```
 
 
 ## API
 Добавить товар в заказ `POST /orders/{order_id}/items`
 
 Request body
-```{
+```
+{
   "product_id": 10,
   "quantity": 3
 }```
