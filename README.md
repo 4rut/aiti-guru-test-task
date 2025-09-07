@@ -34,7 +34,8 @@
 ## Схема БД
 ![](db_DBML.png "Схема БД")
 
-```Table categories {
+```
+Table categories {
   id           bigserial [pk]
   name         varchar(255) [not null]
   parent_id    bigint [ref: > categories.id]
@@ -147,7 +148,8 @@ Request body
 
 ## SQL-запросы
 1. Сумма заказов по каждому клиенту
-```select
+```
+select
   c.name as client_name,
   coalesce(sum(oi.quantity * oi.unit_price), 0) as total_amount
 from clients c
@@ -159,7 +161,8 @@ order by total_amount desc;
 
 
 2. Количество дочерних категорий 1-го уровня
-```select
+```
+select
   p.id,
   p.name,
   count(c.id) as child_count_lvl1
@@ -170,7 +173,8 @@ order by child_count_lvl1 desc, p.name;
 ```
 
 3. ТОП-5 товаров за 30 дней
-```create or replace view v_top5_products_last_month as
+```
+create or replace view v_top5_products_last_month as
 with root_cat as (
   select
     cc.descendant_id as category_id,
