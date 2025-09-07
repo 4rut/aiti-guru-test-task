@@ -123,20 +123,24 @@ Table order_items {
 Добавить товар в заказ `POST /orders/{order_id}/items`
 
 Request body
+
 ```
 {
   "product_id": 10,
   "quantity": 3
-}```
+}
+```
 
 Успешный ответ
 
-```{
+```
+{
   "order_id": 1,
   "product_id": 10,
   "new_quantity_in_order": 7,
   "stock_left": 92
-}```
+}
+```
 
 Ошибки
 
@@ -147,7 +151,6 @@ Request body
 **Swagger:** /docs
 Технически: внутри выполняется `SELECT … FOR UPDATE` по товару, затем UPSERT в `order_items` через `ON CONFLICT`, после — списание `stock_qty` и коммит одной транзакцией.
 ```
-
 ## SQL-запросы
 1. Сумма заказов по каждому клиенту
 ```
