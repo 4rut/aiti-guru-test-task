@@ -38,6 +38,7 @@ jobs:
     env:
       PYTHONPATH: ${{ github.workspace }}/app
       TEST_DATABASE_URL: postgresql+psycopg2://shop:shop@localhost:5432/shop
+      DATABASE_URL: postgresql+psycopg2://shop:shop@localhost:5432/shop
 
     steps:
       - name: Checkout
