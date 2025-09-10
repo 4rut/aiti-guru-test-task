@@ -102,7 +102,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./app
-          push: true
+          push: false
           tags: |
             ${{ env.IMAGE_NAME }}:latest
             ${{ env.IMAGE_NAME }}:${{ github.sha }}
