@@ -13,7 +13,7 @@ concurrency:
 jobs:
   tests:
     name: Run tests (pytest)
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     timeout-minutes: 20
 
     services:
@@ -73,10 +73,10 @@ jobs:
         if: always()
 
   docker-build-push:
-    name: Build & Push Docker image
+    name: Build Docker image
     if: github.ref == 'refs/heads/main'
     needs: [tests]
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     permissions:
       contents: read
       packages: write
@@ -98,7 +98,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build & Push
+      - name: Build
         uses: docker/build-push-action@v6
         with:
           context: ./app
