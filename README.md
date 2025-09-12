@@ -12,9 +12,7 @@
 - Запуск тестов: `pytest` (директория `app/tests`), публикуется `coverage.xml` как artifact.
 
 **CD**
-- Для ветки `main` выполняется сборка Docker-образа из `app/` и пуш в GHCR:
-  - `ghcr.io/<ORG_OR_USER>/aiti-guru-test-task-api:latest`
-  - `ghcr.io/<ORG_OR_USER>/aiti-guru-test-task-api:<commit-sha>`
+- Для ветки `main` выполняется сборка Docker-образа из `app/` (пуш в GHCR в текущей версии отключен):
 
 Статус последнего выполненного теста:
 ![Tests](https://github.com/4rut/aiti-guru-test-task/actions/workflows/ci.yml/badge.svg)
